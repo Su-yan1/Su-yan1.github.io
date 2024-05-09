@@ -4,7 +4,7 @@ title:      "降噪软件的使用"
 subtitle:   "NVIDIA Broadcast的使用"
 date:       2004-05-07 12:00:00
 author:     "lateyoung"
-header-img: "img/img-Broadcast.png"
+header-img: "img/img-Broadcast.jpg"
 catalog: true
 tags:
     - Broadcast
@@ -55,13 +55,31 @@ NVIDIA Broadcast官网地址：[NVIDIA Broadcast](https://www.nvidia.cn/geforce/
 
 3. 相机功能
 
-   
+   在NVIDIA Broadcast的相机界面下，选择相机源之后（如我们这里选择的是C922 Pro摄像头），可以调整输出的画面分辨率和帧率，下面的效果选项栏中，可以选择想要开启的背景功能。当前的NVIDIA Broadcast版本中，为玩家提供了“背景模糊”、“背景更换”、“背景删除”和“自动聚焦”四种效果。
+
+   ![背景删除](https://pic4.zhimg.com/80/v2-2924c2fdde0681d6931a85373f566fb7_720w.webp)
+
+   使用背景更换功能还能在删除背景后使用自定义的图片或视频
+
+   ![change](https://pic4.zhimg.com/80/v2-830ce9129ee4a7f063a20ab29162b5d7_720w.webp)
+
+   背景模糊功能可以识别当前主播的人像主体，并将背景进行模糊处理，从而实现突出主体，减少杂乱背景对直播的影响，或者在纵深较低的直播环境中模拟出更强烈的背景虚化效果，实现更好的直播体验。
+
+   ![blur](https://pic3.zhimg.com/80/v2-70164cd4fcaa67cdf02310a18fc9528e_720w.webp)
 
 
 
+### Broadcast与OBS联动
 
+在开启NVIDIA Broadcast的情况下，软件会生成虚拟的视频设备和音频设备。打开OBS后，点击添加“视频捕获设备”，在弹出的选项框中选择“Camera（NVIDIA Broadcast）”即可使用由NVIDIA Broadcast处理后的视频画面。如果还需要使用音频处理，那么还可以添加一个“音频输入捕获”，设备选择为“麦克风（NVIDIA Broadcast）”。
 
-   
+![Broadcast combine OBS](https://pic2.zhimg.com/80/v2-70d7a0042cfb8ff00bf42349bad9d109_720w.webp)
+
+添加新的麦克风来源同样也在OBS的来源部分，点击＋号后点击音频输入采集后，选择经过Broadcast处理过的音频输入即可。
+
+![添加音频输入设备](https://img2.imgtp.com/2024/05/09/hwl5i5x9.png)
+
+   到这里Broadcast的常用设置和与OBS的配合使用就结束了。
 
    
 
