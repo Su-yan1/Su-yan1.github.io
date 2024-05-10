@@ -17,7 +17,7 @@ header-img: "img/home-bg.jpg"
         这是一个用于记录和提醒的小网站，部署于GitHub Pages
     </blockquote>
     <p>2024.03.25 - 至今</p>
-    <p id="time-difference"></p>
+    <p id="time-difference-zh"></p>
     <p>珍惜眼前当下人</p>
 
 
@@ -32,6 +32,7 @@ header-img: "img/home-bg.jpg"
     <p>
         2024.03.25 - present
     </p>
+    <p id="time-difference-en"></p>
     <p>
         Cherish the person in front of you.
     </p>
@@ -56,18 +57,18 @@ header-img: "img/home-bg.jpg"
 
     function updateTime() {
         // 设置目标时间为2024年3月25日晚上9点（注意月份从0开始计数）
-        const targetTime = new Date(2024, 2, 25, 21, 0, 0);
+        // 由于中国比UTC时间快8小时，我们需要在创建日期时加上这个时差
+        const targetTime = new Date(Date.UTC(2024, 2, 25, 21, 0, 0));
 
-        // 获取当前时间
-        const now = new Date();
+        // 获取当前UTC时间，并转换为中国时间
+        const nowUTC = new Date();
+        const now = new Date(nowUTC.getTime() + 8 * 60 * 60 * 1000);
 
         // 计算时间差，单位为毫秒
-        let diff = targetTime - now;
+        let diff = now - targetTime;
 
-        // 如果时间已经过去，设置差值为0
-        if (diff < 0) {
-            diff = 0;
-        }
+        // 如果当前时间早于目标时间，diff将是负数，我们需要取其绝对值
+        diff = Math.abs(diff);
 
         // 将毫秒转换为天、小时、分钟和秒
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -76,7 +77,10 @@ header-img: "img/home-bg.jpg"
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
         // 更新页面元素显示时间差
-        document.getElementById('time-difference').innerText = `已经在一起${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        document.querySelector("#time-difference-en").innerText =
+            `Been in love ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+        document.querySelector("#time-difference-zh").innerText =
+            `已经在一起 ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
     }
 
     // 每1000毫秒（即1秒）更新一次时间
