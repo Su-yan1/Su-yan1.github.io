@@ -22,13 +22,17 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ site.baseurl }}/">Home</a>
+                        <a href="{{ site.baseurl }}/">主页</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
                     <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        <a href="/about/">关于网站</a>
                     </li>
-                    {% endif %}{% endfor %}
+                    <li>
+                        <a href="/tags/">标签页</a>
+                    </li>
+                    <li>
+                        <a href="https://61.139.65.134:13005/">回忆存放地</a>
+                    </li>
                 </ul>
             </div>
         </div>
