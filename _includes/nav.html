@@ -31,7 +31,7 @@
                         <a href="/tags/" style="font-size: 15px;">标签页</a>
                     </li>
                     <li>
-                        <a href="https://211.149.141.23:52423" style="font-size: 15px;">回忆存放地</a>
+                        <a href="https://211.149.141.23:52423" style="font-size: 15px;" id="timeLink">回忆存放地</a>
                     </li>
                 </ul>
             </div>
@@ -40,6 +40,31 @@
     </div>
     <!-- /.container -->
 </nav>
+<script>
+    function updateTimeBasedLink() {
+        var date = new Date();
+        var localTime = date.getTime();
+        var localOffset = date.getTimezoneOffset() * 60000;
+        var utc = localTime + localOffset;
+        var offset = 8; // 中国是UTC+8
+        var chinaTime = new Date(utc + (3600000 * offset));
+        var hour = chinaTime.getHours();
+
+        var linkElement = document.getElementById('timeLink');
+        if (hour >= 23 || hour < 7) {
+            linkElement.href = "http://182.61.2.149:5244";
+        } else {
+            linkElement.href = "https://211.149.141.23:52423/";
+        }
+    }
+
+    // 初始化链接
+    updateTimeBasedLink();
+
+    // 设置定时器，每分钟检查并更新链接
+    setInterval(updateTimeBasedLink, 60000);
+</script>
+
 <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation
