@@ -31,7 +31,7 @@
                         <a href="/tags/" style="font-size: 15px;">标签页</a>
                     </li>
                     <li>
-                        <a href="https://211.149.141.23:52423" style="font-size: 15px;" id="timerLink">回忆存放地</a>
+                        <a href="https://61.139.65.140:50768/" style="font-size: 15px;" id="timerLink">回忆存放地</a>
                     </li>
                 </ul>
             </div>
@@ -54,7 +54,7 @@
         if (hour >= 23 || hour < 7) {
             linkElement.href = "http://182.61.2.149:5244";
         } else {
-            linkElement.href = "https://211.149.141.23:52423/";
+            linkElement.href = "https://61.139.65.140:50768/";
         }
     }
 
@@ -62,7 +62,7 @@
     updatedTimeBasedLink();
 
     // 设置定时器，每分钟检查并更新链接
-    setInterval(updateTimeBasedLink, 60000);
+    setInterval(updatedTimeBasedLink, 60000);
 </script>
 
 <script>
